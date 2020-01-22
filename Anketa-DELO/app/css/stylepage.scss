@@ -1,0 +1,85 @@
+$purple: #462656;
+$darkpurple: #4c204e;
+@mixin font {
+  font-family: 'Russo One', sans-serif;
+  color: black;
+  font-size: 15px;
+  font-weight: 400;
+}
+body {
+  background-image: url("../img/bgfon.png");
+}
+
+.container {
+  max-width: 1001px;
+  width: auto;
+  max-height: 1300px;
+  height: auto;
+  background-image: url("../img/bgpapka.png");
+  background-size: 100% 100%;
+  padding: 0 0 0 0;
+  margin: 15px auto;
+
+  header {
+    width: auto;
+    height: auto;
+    padding: 50px 110px 50px 110px;
+    .logo-title {
+      display: flex;
+      flex-direction: column;
+      .logo {
+        width: 77px;
+        height: 77px;
+        a {
+          width: 100%;
+          height: 100%;
+          :hover {
+            transform: scale(1.1);
+            transition: 1.5s;
+          }
+        }
+      }
+      .title_delo {
+        display: flex;
+        justify-content: center;
+        h1 {
+          font-family: 'Russo One', sans-serif;
+          font-size: 57px;
+          font-weight: 500;
+          text-transform: uppercase;
+          color: $purple;
+        }
+      }
+    }
+  }
+  main {
+    width: auto;
+    height: auto;
+    padding: 0px 117px 0 117px;
+    .general_information {
+      display: flex;
+      flex-direction: column;
+      .gi_block {
+        display: flex;
+        flex-direction: row;
+        .title_gi {
+          @include font();
+        }
+        .gi_input {
+          input {
+            border: none;
+            outline: none;
+            background: none;
+            border-bottom: 2px solid $darkpurple;
+          }
+        }
+      }
+    }
+
+
+  }
+  footer {
+    width: auto;
+    height: auto;
+  }
+}
