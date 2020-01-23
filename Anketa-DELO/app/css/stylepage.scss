@@ -7,6 +7,13 @@ $darkdarkorange: #2f1b15;
   font-size: 20px;
   font-weight: 400;
 }
+@mixin font-myskills {
+  font-family: 'Russo One', sans-serif;
+  color: black;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
 body {
   background-image: url("../img/bgfon.png");
 }
@@ -71,9 +78,11 @@ body {
           flex-direction: column;
           justify-content: flex-end;
           margin: 0 10px 0 0;
+
         }
         .gi_input {
           width: 100%;
+          display: inherit;
           input {
             width: 100%;
             border: none;
@@ -94,12 +103,100 @@ body {
     .checkbox_info {
       width: 100%;
       margin: 70px 0 0 0;
+
+      .checkbox_title {
+        @include font();
+      }
+
+      .checkbox_subtitle {
+        color: grey;
+        font-size: 15px;
+        text-align: justify;
+        margin: 15px 0px;
+        line-height: 20px;
+      }
+
+      .checkbox_container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "checkbox_block0_skills checkbox_block1_skills checkbox_block2_skills";
+
+        .checkbox_block0_skills {
+          display: inline-grid;
+          .checkbox_myskills{
+            line-height: 30px;
+            .checkbox_myskills_title{
+              @include font-myskills();
+            }
+          }
+        }
+        .checkbox_block1_skills {
+          display: inline-grid;
+          .checkbox_myskills{
+            line-height: 30px;
+            .checkbox_myskills_title{
+              @include font-myskills();
+            }
+          }
+        }
+        .checkbox_block2_skills {
+          display: inline-grid;
+          .checkbox_myskills{
+            line-height: 30px;
+            input[type="checkbox"] + label:before {
+              content: '';
+              display: block;
+              width: 20px;
+              height: 20px;
+              border: 1px solid #6cc0e5;
+              position: absolute;
+              left: 0;
+              top: 0;
+              opacity: .6;
+              -webkit-transition: all .12s, border-color .08s;
+              transition: all .12s, border-color .08s;
+            }
+            .checkbox_myskills_title{
+              @include font-myskills();
+            }
+          }
+        }
+      }
     }
-
-
   }
   footer {
     width: auto;
     height: auto;
   }
+}
+
+@media all and (-ms-high-contrast:none) {
+  .checkbox_container {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr;
+  }
+
+  .checkbox_block0_skills {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .checkbox_block1_skills {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .checkbox_block2_skills {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
 }
