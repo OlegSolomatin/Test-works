@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>DELO</title>
     <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7e4d23cf7d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/stylepage.min.css">
 </head>
 <body>
@@ -61,7 +65,7 @@
         </div>
         <div class="checkbox_info">
             <h1 class="checkbox_title">Мои скилы</h1>
-            <p class="checkbox_subtitle">Отметьте чекбоксами пункты, которые соответствуют вашим скиллам. Отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей. Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.</p>
+            <p class="checkbox_subtitle">Здравствуйте, отмеченными скилами владею уверенно на начальном уровне, с большинством знаком и работал. Себя оцениваю: Полностью готов к проектам начального уровня + с усложнением на middle. Спасибо за просмотр данной работы.</p>
             <div class="checkbox_container">
                 <div class="checkbox_block0_skills">
                     <label class="checkbox_myskills">
@@ -92,7 +96,10 @@
                         <div class="b-input"></div>
                     </label>
                     <label class="checkbox_myskills">
-                        <span>Vue.js</span>
+                        <details>
+                        <summary>Vue.js</summary>
+                            <p>В планах по изучению.</p>
+                        </details>
                         <input type="checkbox">
                         <div class="b-input"></div>
                     </label>
@@ -114,26 +121,40 @@
                         <div class="b-input"></div>
                     </label>
                     <label class="checkbox_myskills">
-                        <span>Верстка писем</span>
+                        <details>
+                        <summary>Верстка писем</summary>
+                            <p>Есть небольшой опыт.</p>
+                        </details>
                         <input type="checkbox">
                         <div class="b-input"></div>
                     </label>
                     <label class="checkbox_myskills">
-                        <span>PHP</span>
+                        <details>
+                        <summary>PHP</summary>
+                            <p>Был опыт в использовании при создание обратной формы, а также создание формы регистрации и авторизации. </p>
+                        </details>
                         <input type="checkbox">
                         <div class="b-input"></div>
                     </label>
                     <label class="checkbox_myskills">
-                        <span>MySql</span>
+                        <details>
+                        <summary>MySql</summary>
+                            <p>Аналогично PHP</p>
+                        </details>
                         <input type="checkbox">
                         <div class="b-input"></div>
                     </label>
                 </div>
             </div>
         </div>
-        <div class="js_level_slider"></div>
+        <div class="js_level_slider">
+            <h1 class="js_slider_title">Уровень владения JavaScript</h1>
+            <div id="polzunok" class="polzunok">
+            </div>
+        </div>
     </main>
     <footer></footer>
 </div>
+<script src="js/index.min.js"></script>
 </body>
 </html>

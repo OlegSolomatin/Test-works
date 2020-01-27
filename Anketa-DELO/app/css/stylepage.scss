@@ -14,6 +14,9 @@ $darkdarkorange: #2f1b15;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
+@mixin grid {
+  display: inline-grid;
+}
 @mixin checkbox-style{
   .checkbox_myskills *, .checkbox_myskills *::before, .checkbox_myskills *::after {
     box-sizing: content-box !important;
@@ -26,6 +29,10 @@ $darkdarkorange: #2f1b15;
   }
 
   .checkbox_myskills span {
+    line-height: 1.54;
+    @include font-myskills();
+  }
+  .checkbox_myskills details summary {
     line-height: 1.54;
     @include font-myskills();
   }
@@ -258,7 +265,7 @@ body {
     }
     .checkbox_info {
       width: 100%;
-      margin: 70px 0 0 0;
+      margin: 70px 0 25px 0;
 
       .checkbox_title {
         @include font();
@@ -279,17 +286,24 @@ body {
         grid-template-areas: "checkbox_block0_skills checkbox_block1_skills checkbox_block2_skills";
 
         .checkbox_block0_skills {
-          display: inline-grid;
+          @include grid();
           @include checkbox-style();
         }
         .checkbox_block1_skills {
-          display: inline-grid;
+          @include grid();
           @include checkbox-style();
         }
         .checkbox_block2_skills {
-          display: inline-grid;
+          @include grid();
           @include checkbox-style();
         }
+      }
+    }
+    .js_level_slider {
+      padding: 0 0 30px 0;
+      .js_slider_title {
+        margin: 15px 0 30px 0;
+        @include font();
       }
     }
   }
