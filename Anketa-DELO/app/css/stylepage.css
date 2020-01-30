@@ -99,6 +99,14 @@ body {
             font-size: 25px;
             font-family: 'Playfair Display', serif;
             letter-spacing: 3px; }
+          .container main .general_information .gi_block .gi_input input::-webkit-input-placeholder {
+            color: black; }
+          .container main .general_information .gi_block .gi_input input::-moz-placeholder {
+            color: black; }
+          .container main .general_information .gi_block .gi_input input:-ms-input-placeholder {
+            color: black; }
+          .container main .general_information .gi_block .gi_input input::-ms-input-placeholder {
+            color: black; }
           .container main .general_information .gi_block .gi_input input::placeholder {
             color: black; }
     .container main .checkbox_info {
@@ -116,13 +124,18 @@ body {
         margin: 15px 0px;
         line-height: 20px; }
       .container main .checkbox_info .checkbox_container {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: "checkbox_block0_skills checkbox_block1_skills checkbox_block2_skills"; }
         .container main .checkbox_info .checkbox_container .checkbox_block0_skills {
+          display: -ms-inline-grid;
           display: inline-grid; }
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills *, .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills *::before, .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills *::after {
+            -webkit-box-sizing: content-box !important;
             box-sizing: content-box !important; }
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills input {
             position: absolute;
@@ -184,6 +197,7 @@ body {
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills input:focus ~ .b-input {
             background: #e7eef3; }
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills input:focus ~ .b-input {
+            -webkit-box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5);
             box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5); }
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills input:checked ~ .b-input {
             background: rgba(255, 255, 255, 0);
@@ -213,12 +227,44 @@ body {
             -webkit-transform: scale(0);
             -ms-transform: scale(0);
             transform: scale(0); }
+@-webkit-keyframes b-ripple {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  20% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
 @keyframes b-ripple {
   0% {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0); }
   20% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@-webkit-keyframes b-ripple-duplicate {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  30% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  60% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); }
@@ -249,6 +295,7 @@ body {
             -webkit-animation: b-ripple 250ms ease-out;
             animation: b-ripple 250ms ease-out; }
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills input:checked + .b-input::before {
+            -webkit-animation-name: b-ripple-duplicate;
             animation-name: b-ripple-duplicate; }
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills .b-input::before {
             visibility: hidden; }
@@ -257,8 +304,10 @@ body {
           .container main .checkbox_info .checkbox_container .checkbox_block0_skills .checkbox_myskills:first-child .b-input::before {
             visibility: hidden; }
         .container main .checkbox_info .checkbox_container .checkbox_block1_skills {
+          display: -ms-inline-grid;
           display: inline-grid; }
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills *, .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills *::before, .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills *::after {
+            -webkit-box-sizing: content-box !important;
             box-sizing: content-box !important; }
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills input {
             position: absolute;
@@ -320,6 +369,7 @@ body {
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills input:focus ~ .b-input {
             background: #e7eef3; }
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills input:focus ~ .b-input {
+            -webkit-box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5);
             box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5); }
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills input:checked ~ .b-input {
             background: rgba(255, 255, 255, 0);
@@ -349,12 +399,44 @@ body {
             -webkit-transform: scale(0);
             -ms-transform: scale(0);
             transform: scale(0); }
+@-webkit-keyframes b-ripple {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  20% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
 @keyframes b-ripple {
   0% {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0); }
   20% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@-webkit-keyframes b-ripple-duplicate {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  30% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  60% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); }
@@ -385,6 +467,7 @@ body {
             -webkit-animation: b-ripple 250ms ease-out;
             animation: b-ripple 250ms ease-out; }
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills input:checked + .b-input::before {
+            -webkit-animation-name: b-ripple-duplicate;
             animation-name: b-ripple-duplicate; }
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills .b-input::before {
             visibility: hidden; }
@@ -393,8 +476,10 @@ body {
           .container main .checkbox_info .checkbox_container .checkbox_block1_skills .checkbox_myskills:first-child .b-input::before {
             visibility: hidden; }
         .container main .checkbox_info .checkbox_container .checkbox_block2_skills {
+          display: -ms-inline-grid;
           display: inline-grid; }
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills *, .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills *::before, .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills *::after {
+            -webkit-box-sizing: content-box !important;
             box-sizing: content-box !important; }
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills input {
             position: absolute;
@@ -456,6 +541,7 @@ body {
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills input:focus ~ .b-input {
             background: #e7eef3; }
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills input:focus ~ .b-input {
+            -webkit-box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5);
             box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5); }
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills input:checked ~ .b-input {
             background: rgba(255, 255, 255, 0);
@@ -485,12 +571,44 @@ body {
             -webkit-transform: scale(0);
             -ms-transform: scale(0);
             transform: scale(0); }
+@-webkit-keyframes b-ripple {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  20% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
 @keyframes b-ripple {
   0% {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0); }
   20% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@-webkit-keyframes b-ripple-duplicate {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  30% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  60% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); }
@@ -521,6 +639,7 @@ body {
             -webkit-animation: b-ripple 250ms ease-out;
             animation: b-ripple 250ms ease-out; }
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills input:checked + .b-input::before {
+            -webkit-animation-name: b-ripple-duplicate;
             animation-name: b-ripple-duplicate; }
           .container main .checkbox_info .checkbox_container .checkbox_block2_skills .checkbox_myskills .b-input::before {
             visibility: hidden; }

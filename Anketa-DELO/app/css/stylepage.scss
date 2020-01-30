@@ -53,6 +53,7 @@ $darkdarkorange: #2f1b15;
   flex-direction: row;
 }
 @mixin grid {
+  display: -ms-inline-grid;
   display: inline-grid;
 }
 @mixin transformS($value) {
@@ -67,6 +68,7 @@ $darkdarkorange: #2f1b15;
 }
 @mixin checkbox-style{
   .checkbox_myskills *, .checkbox_myskills *::before, .checkbox_myskills *::after {
+    -webkit-box-sizing: content-box !important;
     box-sizing: content-box !important;
   }
 
@@ -139,6 +141,7 @@ $darkdarkorange: #2f1b15;
   }
 
   .checkbox_myskills input:focus ~ .b-input {
+    -webkit-box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5);
     box-shadow: 0 0 0 2px rgba(5, 11, 15, 0.5);
   }
 
@@ -176,12 +179,46 @@ $darkdarkorange: #2f1b15;
     @include transformS(0);
   }
 
+  @-webkit-keyframes b-ripple {
+    0% {
+      @include transformS(0);
+    }
+
+    20% {
+      @include transformS(1);
+    }
+
+    100% {
+      opacity: 0;
+      @include transformS(1);
+    }
+  }
+
   @keyframes b-ripple {
     0% {
       @include transformS(0);
     }
 
     20% {
+      @include transformS(1);
+    }
+
+    100% {
+      opacity: 0;
+      @include transformS(1);
+    }
+  }
+
+  @-webkit-keyframes b-ripple-duplicate {
+    0% {
+      @include transformS(0);
+    }
+
+    30% {
+      @include transformS(1);
+    }
+
+    60% {
       @include transformS(1);
     }
 
@@ -216,6 +253,7 @@ $darkdarkorange: #2f1b15;
   }
 
   .checkbox_myskills input:checked + .b-input::before {
+    -webkit-animation-name: b-ripple-duplicate;
     animation-name: b-ripple-duplicate;
   }
 
@@ -306,6 +344,18 @@ body {
             font-family: 'Playfair Display', serif;
             letter-spacing: 3px;
           }
+          input::-webkit-input-placeholder {
+            color: black;
+          }
+          input::-moz-placeholder {
+            color: black;
+          }
+          input:-ms-input-placeholder {
+            color: black;
+          }
+          input::-ms-input-placeholder {
+            color: black;
+          }
           input::placeholder {
             color: black;
           }
@@ -329,8 +379,11 @@ body {
       }
 
       .checkbox_container{
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: "checkbox_block0_skills checkbox_block1_skills checkbox_block2_skills";
 
@@ -384,7 +437,7 @@ body {
           letter-spacing: 3px;
         }
         input[type="date"] {
-            color: black;
+          color: black;
         }
       }
     }
