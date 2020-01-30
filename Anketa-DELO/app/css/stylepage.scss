@@ -1,7 +1,6 @@
 $purple: #462656;
 $darkpurple: #4c204e;
 $darkdarkorange: #2f1b15;
-
 @mixin font {
   font-family: 'Russo One', sans-serif;
   color: $darkdarkorange;
@@ -15,8 +14,56 @@ $darkdarkorange: #2f1b15;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
+@mixin flex-center{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@mixin flex-col{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+@mixin flex-col-end{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+@mixin flex-row{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
 @mixin grid {
   display: inline-grid;
+}
+@mixin transformS($value) {
+  -webkit-transform: scale($value);
+  -ms-transform: scale($value);
+  transform: scale($value);
+}
+@mixin transition($time){
+  -webkit-transition: $time;
+  -o-transition: $time;
+  transition: $time;
 }
 @mixin checkbox-style{
   .checkbox_myskills *, .checkbox_myskills *::before, .checkbox_myskills *::after {
@@ -53,6 +100,8 @@ $darkdarkorange: #2f1b15;
     height: 1.25rem;
     width: 1.25rem;
     background: none;
+    -webkit-transition: background 250ms;
+    -o-transition: background 250ms;
     transition: background 250ms;
     border: none;
     border-radius: 0.241rem;
@@ -68,7 +117,11 @@ $darkdarkorange: #2f1b15;
     height: 0.89rem;
     border: solid rgba(149, 21, 149, 1);
     border-width: 0 2px 2px 0;
+    -webkit-transition: background 250ms;
+    -o-transition: background 250ms;
     transition: background 250ms;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
 
@@ -120,44 +173,45 @@ $darkdarkorange: #2f1b15;
     border-radius: 2rem;
     opacity: .6;
     z-index: 99999;
-    transform: scale(0);
+    @include transformS(0);
   }
 
   @keyframes b-ripple {
     0% {
-      transform: scale(0);
+      @include transformS(0);
     }
 
     20% {
-      transform: scale(1);
+      @include transformS(1);
     }
 
     100% {
       opacity: 0;
-      transform: scale(1);
+      @include transformS(1);
     }
   }
 
   @keyframes b-ripple-duplicate {
     0% {
-      transform: scale(0);
+      @include transformS(0);
     }
 
     30% {
-      transform: scale(1);
+      @include transformS(1);
     }
 
     60% {
-      transform: scale(1);
+      @include transformS(1);
     }
 
     100% {
       opacity: 0;
-      transform: scale(1);
+      @include transformS(1);
     }
   }
 
   .checkbox_myskills input + .b-input::before {
+    -webkit-animation: b-ripple 250ms ease-out;
     animation: b-ripple 250ms ease-out;
   }
 
@@ -198,8 +252,7 @@ body {
     height: auto;
     padding: 50px 110px 50px 110px;
     .logo-title {
-      display: flex;
-      flex-direction: column;
+      @include flex-col();
       .logo {
         width: 77px;
         height: 77px;
@@ -207,14 +260,13 @@ body {
           width: 100%;
           height: 100%;
           :hover {
-            transform: scale(1.1);
-            transition: 1.5s;
+            @include transformS(1.1);
+            @include transition(1.5);
           }
         }
       }
       .title_delo {
-        display: flex;
-        justify-content: center;
+        @include flex-center();
         h1 {
           font-family: 'Russo One', sans-serif;
           font-size: 57px;
@@ -230,17 +282,13 @@ body {
     height: auto;
     padding: 0 13% 0 10%;
     .general_information {
-      display: flex;
-      flex-direction: column;
+      @include flex-col();
       .gi_block {
-        display: flex;
-        flex-direction: row;
+        @include flex-row();
         margin: 15px 0px;
         .title_gi {
           @include font();
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
+          @include flex-col-end();
           margin: 0 10px 0 0;
 
         }
@@ -311,6 +359,35 @@ body {
   footer {
     width: auto;
     height: auto;
+    padding: 100px 13% 100px 10%;
+    .gi_block {
+      @include flex-row();
+      margin: 15px 0px;
+      .title_gi {
+        @include font();
+        @include flex-col-end();
+        margin: 0 10px 0 0;
+
+      }
+      .gi_input {
+        width: 100%;
+        display: inherit;
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          background: none;
+          border-bottom: 2px solid $darkpurple;
+          padding: 0 0 5px 50px;
+          font-size: 25px;
+          font-family: 'Playfair Display', serif;
+          letter-spacing: 3px;
+        }
+        input[type="date"] {
+            color: black;
+        }
+      }
+    }
   }
 }
 
